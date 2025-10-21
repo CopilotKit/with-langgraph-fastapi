@@ -1,4 +1,4 @@
-import { LangGraphHttpAgent } from "@ag-ui/langgraph";
+import { WebSocketAgent } from "@/lib/agents";
 import {
   CopilotRuntime,
   createCopilotEndpoint,
@@ -8,11 +8,15 @@ import { handle } from "hono/vercel";
 
 const runtime = new CopilotRuntime({
   agents: {
-    default: new LangGraphHttpAgent({
-      url: process.env.AGENT_URL || "http://localhost:8123",
+    default: new WebSocketAgent({
+      agentId: "sample_agent",
+      description: "An example agent using WebSocket connection",
+      url: process.env.AGENT_URL || "ws://localhost:8123",
     }),
-    foo: new LangGraphHttpAgent({
-      url: process.env.AGENT_URL || "http://localhost:8123",
+    foo: new WebSocketAgent({
+      agentId: "sample_agent_foo",
+      description: "Another example agent using WebSocket connection",
+      url: process.env.AGENT_URL || "ws://localhost:8123",
     }),
   },
 });

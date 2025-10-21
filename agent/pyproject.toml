@@ -16,8 +16,9 @@ langgraph = "0.4.10"
 langsmith = "0.4.4"
 openai = "^1.68.2"
 fastapi = "^0.115.5"
-uvicorn = "^0.29.0"
+uvicorn = {extras = ["standard"], version = "^0.29.0"}
 python-dotenv = "^1.0.0"
+websockets = "^13.0"
 
 [tool.poetry.scripts]
 demo = "sample_agent.demo:main"

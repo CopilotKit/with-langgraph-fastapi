@@ -13,6 +13,7 @@
     "install:agent": "cd agent && poetry install"
   },
   "dependencies": {
+    "@ag-ui/client": "0.0.40-alpha.7",
     "@ag-ui/core": "0.0.40-alpha.7",
     "@ag-ui/langgraph": "0.0.19-alpha.1",
     "@copilotkitnext/core": "0.0.19-threads-and-attachements.1",
@@ -22,6 +23,7 @@
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "rxjs": "^7.8.2",
     "zod": "^3.24.4"
   },
   "devDependencies": {

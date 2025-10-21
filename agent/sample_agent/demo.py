@@ -9,13 +9,14 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 import uvicorn
 from sample_agent.agent import graph
-from ag_ui_langgraph import add_langgraph_fastapi_endpoint, LangGraphAgent
+from ag_ui_langgraph import LangGraphAgent
+from sample_agent.websocket_endpoint import add_langgraph_fastapi_endpoint_websocket
 
 _ = load_dotenv()  # pylint: disable=wrong-import-position
 
 app = FastAPI()
 
-add_langgraph_fastapi_endpoint(
+add_langgraph_fastapi_endpoint_websocket(
     app=app,
     agent=LangGraphAgent(
         name="sample_agent",
