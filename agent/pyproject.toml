@@ -9,7 +9,7 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
-copilotkit = "0.1.55"
+ag-ui-langgraph = "0.0.18a0"
 langchain = "0.3.26"
 langchain-openai = "0.3.28"
 langgraph = "0.4.10"

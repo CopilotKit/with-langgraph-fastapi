@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 
-import { CopilotKit } from "@copilotkit/react-core";
+import { CopilotKitProvider } from "@copilotkitnext/react";
 import "./globals.css";
-import "@copilotkit/react-ui/styles.css";
+import "@copilotkitnext/react/styles.css";
+import { weatherToolRenderer } from "./components/gen-ui/weather";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,9 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={"antialiased"}>
-        <CopilotKit runtimeUrl="/api/copilotkit" agent="sample_agent">
+        <CopilotKitProvider
+          renderToolCalls={[weatherToolRenderer]}
+          runtimeUrl="/api/copilotkit"
+        >
           {children}
-        </CopilotKit>
+        </CopilotKitProvider>
       </body>
     </html>
   );

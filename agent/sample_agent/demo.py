@@ -5,25 +5,26 @@ through our FastAPI integration. However, you can also host in LangGraph platfor
 
 import os
 from dotenv import load_dotenv
-load_dotenv() # pylint: disable=wrong-import-position
 
 from fastapi import FastAPI
 import uvicorn
-from copilotkit import LangGraphAGUIAgent
 from sample_agent.agent import graph
-from ag_ui_langgraph import add_langgraph_fastapi_endpoint
+from ag_ui_langgraph import add_langgraph_fastapi_endpoint, LangGraphAgent
+
+_ = load_dotenv()  # pylint: disable=wrong-import-position
 
 app = FastAPI()
 
 add_langgraph_fastapi_endpoint(
     app=app,
-    agent=LangGraphAGUIAgent(
+    agent=LangGraphAgent(
         name="sample_agent",
         description="An example agent to use as a starting point for your own agent.",
-        graph=graph
+        graph=graph,
     ),
-    path="/"
+    path="/",
 )
+
 
 def main():
     """Run the uvicorn server."""

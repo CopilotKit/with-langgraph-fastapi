@@ -2,36 +2,35 @@
 
 [[package]]
 name = "ag-ui-langgraph"
-version = "0.0.1"
-description = ""
+version = "0.0.18a0"
+description = "Implementation of the AG-UI protocol for LangGraph."
 optional = false
 python-versions = "<3.14,>=3.10"
 groups = ["main"]
 files = [
-    {file = "ag_ui_langgraph-0.0.1-py3-none-any.whl", hash = "sha256:b7c90b90fb8d736fc7426219166fa63572bcc10171253d5c982544fa256b568f"},
-    {file = "ag_ui_langgraph-0.0.1.tar.gz", hash = "sha256:3208916af56f5c2dd395c85889d089f12c84207bc3e0ae12acc045abe845ce09"},
+    {file = "ag_ui_langgraph-0.0.18a0-py3-none-any.whl", hash = "sha256:8bfd26f475adf2cafba4baa4e124a97463203714cd8232970c9f8763b0cc2e30"},
+    {file = "ag_ui_langgraph-0.0.18a0.tar.gz", hash = "sha256:a9951ed205016be1a44c4ea73d6117b3d5daa3d9bb69184987847beea62907a9"},
 ]
 
 [package.dependencies]
-ag-ui-protocol = "0.1.7"
-fastapi = {version = ">=0.115.12,<0.116.0", optional = true, markers = "extra == \"fastapi\""}
+ag-ui-protocol = "0.2.0a0"
 langchain = ">=0.3.0"
 langchain-core = ">=0.3.0"
-langgraph = ">=0.3.25,<=0.5.0"
+langgraph = ">=0.3.25,<1.1.0"
 
 [package.extras]
 fastapi = ["fastapi (>=0.115.12,<0.116.0)"]
 
 [[package]]
 name = "ag-ui-protocol"
-version = "0.1.7"
+version = "0.2.0a0"
 description = ""
 optional = false
 python-versions = "<4.0,>=3.9"
 groups = ["main"]
 files = [
-    {file = "ag_ui_protocol-0.1.7-py3-none-any.whl", hash = "sha256:8c821662ca6e9852569022f449b9f7aeb3f16aa75390fa8c28ceae2cce642baa"},
-    {file = "ag_ui_protocol-0.1.7.tar.gz", hash = "sha256:0e93fd9f7c74d52afbd824d6e9738bd3422e859503905ba7582481cbc3c67ab2"},
+    {file = "ag_ui_protocol-0.2.0a0-py3-none-any.whl", hash = "sha256:3f1fbf7ea1f0333ce8034cdc67df192b3c1a85a6c39dc866c35f9329df85b9cf"},
+    {file = "ag_ui_protocol-0.2.0a0.tar.gz", hash = "sha256:422bc284f9ab7019d2796641bac96faddd20eba815e1bad6122d72be1f989b80"},
 ]
 
 [package.dependencies]
@@ -307,29 +306,6 @@ files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
 ]
-
-[[package]]
-name = "copilotkit"
-version = "0.1.55"
-description = "CopilotKit python SDK"
-optional = false
-python-versions = "<3.13,>=3.10"
-groups = ["main"]
-files = [
-    {file = "copilotkit-0.1.55-py3-none-any.whl", hash = "sha256:aa4a5026190760d6ba1dbd920849d62c3500a9c6d583adf4c02950aed75ffbf7"},
-    {file = "copilotkit-0.1.55.tar.gz", hash = "sha256:d095be62c58f5cc25ab9e34839ec16ef64e45a88378e5dbf4770efcb8e10ac43"},
-]
-
-[package.dependencies]
-ag-ui-langgraph = {version = "0.0.1", extras = ["fastapi"]}
-fastapi = ">=0.115.0,<0.116.0"
-langchain = ">=0.3.4,<=0.3.26"
-langgraph = ">=0.3.18,<=0.5.0"
-partialjson = ">=0.0.8,<0.0.9"
-toml = ">=0.10.2,<0.11.0"
-
-[package.extras]
-crewai = ["crewai (==0.118.0)"]
 
 [[package]]
 name = "distro"
@@ -1025,18 +1001,6 @@ files = [
 ]
 
 [[package]]
-name = "partialjson"
-version = "0.0.8"
-description = "Parse incomplete or partial json"
-optional = false
-python-versions = "*"
-groups = ["main"]
-files = [
-    {file = "partialjson-0.0.8-py3-none-any.whl", hash = "sha256:22c6c60944137f931a7033fa0eeee2d74b49114f3d45c25a560b07a6ebf22b76"},
-    {file = "partialjson-0.0.8.tar.gz", hash = "sha256:91217e19a15049332df534477f56420065ad1729cedee7d8c7433e1d2acc7dca"},
-]
-
-[[package]]
 name = "pycparser"
 version = "2.22"
 description = "C parser in Python"
@@ -1593,18 +1557,6 @@ requests = ">=2.26.0"
 blobfile = ["blobfile (>=2)"]
 
 [[package]]
-name = "toml"
-version = "0.10.2"
-description = "Python Library for Tom's Obvious, Minimal Language"
-optional = false
-python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
-groups = ["main"]
-files = [
-    {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
-    {file = "toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"},
-]
-
-[[package]]
 name = "tqdm"
 version = "4.67.1"
 description = "Fast, Extensible Progress Meter"
@@ -1940,4 +1892,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<3.13"
-content-hash = "3d6e016ef0a5b22010a8e175f17129a4fbe7d0287539ca58d786ad9497593769"
+content-hash = "6a108e2de50bd6623b9a24193c405e9583df1cda6aeae123035547d68ed00a94"
