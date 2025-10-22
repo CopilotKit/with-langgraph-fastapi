@@ -4,14 +4,15 @@ This is a starter template for building AI agents using [LangGraph](https://www.
 
 ## Prerequisites
 
-- Node.js 18+ 
+
 - Python 3.8+
-- Poetry 2+
-- Any of the following package managers:
-  - [pnpm](https://pnpm.io/installation) (recommended)
-  - npm
-  - [yarn](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable)
-  - [bun](https://bun.sh/)
+  - uv
+- Node.js 18+
+  - Any of the following package managers:
+    - [pnpm](https://pnpm.io/installation) (recommended)
+    - npm
+    - [yarn](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable)
+    - [bun](https://bun.sh/)
 - OpenAI API Key (for the LangGraph agent)
 
 > **Note:** This repository ignores lock files (package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb) to avoid conflicts between different package managers. Each developer should generate their own lock file using their preferred package manager. After that, make sure to delete it from the .gitignore.
@@ -93,7 +94,6 @@ The main UI component is in `src/app/page.tsx`. You can:
 - [LangGraph Documentation](https://langchain-ai.github.io/langgraph/) - Learn more about LangGraph and its features
 - [CopilotKit Documentation](https://docs.copilotkit.ai) - Explore CopilotKit's capabilities
 - [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API
-- [YFinance Documentation](https://pypi.org/project/yfinance/) - Financial data tools
 
 ## Contributing
 
