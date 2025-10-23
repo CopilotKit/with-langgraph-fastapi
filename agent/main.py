@@ -3,11 +3,11 @@ import warnings
 from dotenv import load_dotenv
 from fastapi import FastAPI
 import uvicorn
-from copilotkit import LangGraphAGUIAgent
 from src.agent import graph
+from copilotkit import LangGraphAGUIAgent
 from ag_ui_langgraph import add_langgraph_fastapi_endpoint
 
-load_dotenv()
+_ = load_dotenv()
 app = FastAPI()
 
 add_langgraph_fastapi_endpoint(

@@ -9,9 +9,8 @@ from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage
 from langchain_core.runnables import RunnableConfig
 from langchain_core.tools import tool
-from langgraph.graph import StateGraph, END
+from langgraph.graph import StateGraph, MessagesState, END
 from langgraph.types import Command
-from langgraph.graph import MessagesState
 from langgraph.prebuilt import ToolNode
 from langgraph.checkpoint.memory import MemorySaver
 

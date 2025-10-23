@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npm run dev:ui\" \"npm run dev:agent\" --names ui,agent --prefix-colors blue,green --kill-others",
+    "dev": "concurrently \"npm run dev:ui\" \"npm run dev:agent\" \"npm run dev:server\" --names ui,agent,server --prefix-colors blue,green,magenta --kill-others",
     "dev:debug": "LOG_LEVEL=debug npm run dev",
     "dev:agent": "cd agent && uv run main.py",
     "dev:ui": "next dev --turbopack",
+    "dev:server": "tsx watch server/index.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -19,6 +20,7 @@
     "@copilotkitnext/core": "^0.0.18",
     "@copilotkitnext/react": "^0.0.18",
     "@copilotkitnext/runtime": "^0.0.18",
+    "@hono/node-server": "^1.19.5",
     "hono": "^4.6.13",
     "next": "15.3.2",
     "react": "^19.0.0",
@@ -38,6 +40,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
     "tailwindcss": "^4",
+    "tsx": "^4.20.6",
     "typescript": "^5"
   }
 }
