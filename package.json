@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npm run dev:ui\" \"npm run dev:agent\" \"npm run dev:server\" --names ui,agent,server --prefix-colors blue,green,magenta --kill-others",
+    "dev": "concurrently \"npm run dev:ui\" \"npm run dev:agent\" \"npm run dev:runtime\" --names ui,agent,runtime --prefix-colors blue,green,magenta --kill-others",
     "dev:debug": "LOG_LEVEL=debug npm run dev",
     "dev:agent": "cd agent && uv run main.py",
     "dev:ui": "next dev --turbopack",
-    "dev:server": "tsx watch server/index.ts",
+    "dev:runtime": "tsx watch src/runtime.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

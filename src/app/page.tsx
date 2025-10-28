@@ -14,7 +14,7 @@ import { z } from "zod";
 export default function Page() {
   return (
     <CopilotKitProvider
-      runtimeUrl="/api/copilotkit"
+      runtimeUrl="http://localhost:4001/api/copilotkit"
       showDevConsole="auto"
       renderToolCalls={toolRenders}
     >

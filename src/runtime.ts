@@ -3,15 +3,14 @@ import {
   createCopilotEndpoint,
   InMemoryAgentRunner,
 } from "@copilotkitnext/runtime";
-
 import { LangGraphHttpAgent } from "@ag-ui/langgraph";
-import { handle } from "hono/vercel";
+import { serve } from "@hono/node-server";
+import { cors } from "hono/cors";
 
 // 1. Create the CopilotRuntime instance and utilize the LangGraph AG-UI
 //    integration to setup the connection.
 const runtime = new CopilotRuntime({
   agents: {
-    // @ts-ignore
     default: new LangGraphHttpAgent({
       url: process.env.AGENT_URL || "http://localhost:8123",
     }),
@@ -25,6 +24,20 @@ const app = createCopilotEndpoint({
   basePath: "/api/copilotkit",
 });
 
-// 3. Export GET and POST handlers using Hono's Vercel adapter
-export const GET = handle(app);
-export const POST = handle(app);
+// 3. Enable CORS for all origins
+app.use(
+  "*",
+  cors({
+    origin: "*",
+    allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowHeaders: ["Content-Type", "Authorization"],
+  }),
+);
+
+// 4. Start the server
+serve({
+  fetch: app.fetch,
+  port: 4001,
+});
+
+console.log("Server running on http://localhost:4001");
