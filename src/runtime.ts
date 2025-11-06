@@ -6,6 +6,7 @@ import {
 import { LangGraphHttpAgent } from "@ag-ui/langgraph";
 import { serve } from "@hono/node-server";
 import { cors } from "hono/cors";
+import { myAgents } from "./agents";
 
 // 1. Create the CopilotRuntime instance and utilize the LangGraph AG-UI
 //    integration to setup the connection.
@@ -14,6 +15,13 @@ const runtime = new CopilotRuntime({
     default: new LangGraphHttpAgent({
       url: process.env.AGENT_URL || "http://localhost:8123",
     }),
+
+    langgraph: myAgents.langgraphAgent,
+    mastra: myAgents.mastraAgent,
+    pydantic: myAgents.pydanticAgent,
+    awsStrands: myAgents.awsStrandsAgent,
+    microsoftAgentFramework: myAgents.microsoftAgentFrameworkAgent,
+    googleAdk: myAgents.googleAdkAgent,
   },
   runner: new InMemoryAgentRunner(),
 });
@@ -24,7 +32,6 @@ const app = createCopilotEndpoint({
   basePath: "/api/copilotkit",
 });
 
-// 3. Enable CORS for all origins
 app.use(
   "*",
   cors({
