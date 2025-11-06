@@ -6,10 +6,12 @@ import {
   CopilotSidebar,
   useAgent,
   useFrontendTool,
+  useHumanInTheLoop,
 } from "@copilotkitnext/react";
 import { useState } from "react";
 import { toolRenders } from "@/components/gen-ui";
 import { z } from "zod";
+import { ApprovalRequest, ApprovalResult } from "@/components/approval-ui";
 
 export default function Page() {
   return (
@@ -38,6 +40,29 @@ function PageContent() {
     handler: async ({ themeColor }) => {
       setThemeColor(themeColor);
       return `Theme color set to ${themeColor}`;
+    },
+  });
+
+  useHumanInTheLoop({
+    name: "approveOrDenyMessage",
+    parameters: z.object({
+      message: z.string().describe("The message to send to the human."),
+    }),
+    render: ({ args, respond, result }) => {
+      if (result) {
+        const parsedResult = JSON.parse(result) as { status: "approve" | "deny" };
+        return (
+          <ApprovalResult message={args.message || ""} status={parsedResult.status} />
+        );
+      }
+      
+      return (
+        <ApprovalRequest
+          message={args.message || ""}
+          onApprove={() => respond?.({ status: "approve" })}
+          onDeny={() => respond?.({ status: "deny" })}
+        />
+      );
     },
   });
 
