@@ -1,6 +1,10 @@
 "use client";
 
-import { useCoAgent, useCopilotAction } from "@copilotkit/react-core";
+import {
+  useCoAgent,
+  useFrontendTool,
+  useRenderToolCall,
+} from "@copilotkit/react-core";
 import { CopilotKitCSSProperties, CopilotSidebar } from "@copilotkit/react-ui";
 import { useState } from "react";
 
@@ -8,7 +12,7 @@ export default function CopilotKitPage() {
   const [themeColor, setThemeColor] = useState("#6366f1");
 
   // 🪁 Frontend Actions: https://docs.copilotkit.ai/guides/frontend-actions
-  useCopilotAction({
+  useFrontendTool({
     name: "setThemeColor",
     parameters: [
       {
@@ -59,7 +63,7 @@ function YourMainContent({ themeColor }: { themeColor: string }) {
   });
 
   // 🪁 Frontend Actions: https://docs.copilotkit.ai/langgraph/frontend-actions
-  useCopilotAction({
+  useFrontendTool({
     name: "addProverb",
     parameters: [
       {
@@ -77,10 +81,9 @@ function YourMainContent({ themeColor }: { themeColor: string }) {
   });
 
   //🪁 Generative UI: https://docs.copilotkit.ai/langgraph/generative-ui
-  useCopilotAction({
+  useRenderToolCall({
     name: "get_weather",
     description: "Get the weather for a given location.",
-    available: "disabled",
     parameters: [{ name: "location", type: "string", required: true }],
     render: ({ args }) => {
       return <WeatherCard location={args.location} themeColor={themeColor} />;

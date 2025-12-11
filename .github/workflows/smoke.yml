@@ -33,6 +33,11 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
 
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
       - name: Install Node.js dependencies (root)
         run: npm install
 
@@ -44,7 +49,7 @@ jobs:
       - name: Install Python dependencies (agent)
         run: |
           cd agent
-          pip install -r requirements.txt
+          uv sync
 
       - name: Build frontend
         run: npm run build
