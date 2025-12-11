@@ -1,27 +1,18 @@
-[tool.poetry]
+[project]
 name = "agent"
 version = "0.1.0"
 description = ""
-authors = ["CopilotKit"]
 readme = "README.md"
-packages = [{include = "sample_agent"}]
-package-mode = false
-
-[tool.poetry.dependencies]
-python = ">=3.10,<3.13"
-copilotkit = "0.1.55"
-langchain = "0.3.26"
-langchain-openai = "0.3.28"
-langgraph = "0.4.10"
-langsmith = "0.4.4"
-openai = "^1.68.2"
-fastapi = "^0.115.5"
-uvicorn = "^0.29.0"
-python-dotenv = "^1.0.0"
-
-[tool.poetry.scripts]
-demo = "sample_agent.demo:main"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "copilotkit==0.1.70a0",
+    "langchain==1.0.1",
+    "langchain-openai==1.0.1",
+    "langgraph==1.0.1",
+    "openai==1.109.1",
+    "fastapi==0.115.12",
+    "uvicorn>=0.38.0",
+    "python-dotenv>=1.0.0",
+    "ag-ui-langgraph==0.0.18",
+    "pydantic>=2.0.0,<3.0.0",
+]
