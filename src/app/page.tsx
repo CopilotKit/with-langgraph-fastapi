@@ -12,9 +12,13 @@ import {
 } from "@copilotkit/react-core";
 import { CopilotKitCSSProperties, CopilotSidebar } from "@copilotkit/react-ui";
 import { useState } from "react";
+import { useChatPersistence } from "@/lib/useChatPersistence";
 
 export default function CopilotKitPage() {
   const [themeColor, setThemeColor] = useState("#6366f1");
+
+  // 💾 Persist chat history to localStorage
+  useChatPersistence();
 
   // 🪁 Frontend Actions: https://docs.copilotkit.ai/pydantic-ai/frontend-actions
   useFrontendTool({
